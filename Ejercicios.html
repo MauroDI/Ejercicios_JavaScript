@@ -11,11 +11,17 @@
 </head>
 
 <body>
+
     <div class="container-fluid">
         <div class="row">
+            <div class="col-12">
+                <h1>Ejercicios guia JavaScript</h1>
+            </div>
+        </div>
+        <div class="row">
             <!-- Left Column for Buttons -->
-            <div class="col-3">
-                <div class="btn-group-vertical">
+            <div class="col-1">
+                <div class="btn-group-vertical text-nowrap">
                     <link rel="stylesheet" href="">
                     <button type="button" class="btn btn-primary" id="button1"
                         onclick="loadScript('Ejercicios Aprendizaje/Ejercicio 1.js')">Ejercicio 1</button>
@@ -71,9 +77,11 @@
             </div>
 
             <!-- Main Content Area -->
-            <div class="col-9">
+            <div class="col-11">
+                <div class="d-flex flex-column flex-grow-1"></div>
                 <div id="dynamic-content">
                     <!-- Content will be dynamically loaded here -->
+                </div>
                 </div>
             </div>
         </div>

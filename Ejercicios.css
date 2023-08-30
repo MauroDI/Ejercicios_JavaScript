@@ -32,15 +32,15 @@
 .container-fluid {
     display:inline-block ;
 }
-.col-md-3{
-
+.col-2{
+    min-width: 500;
 }
 /* .col-md-9{
     width: 100px;
     height:100px;
     float:right;
 } */
-.col-9{
+.col-11{
     display: flex;
     max-width: 100%;
   padding: 20px;
@@ -49,4 +49,8 @@
   align-items: center;
   justify-content: center;
   text-align: left;
+}
+.col-12{
+    text-align: center;
+    color: blueviolet;
 }
