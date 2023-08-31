@@ -43,7 +43,7 @@
         
     
 }
-.col floating-text{
+/* .col .floating-text{
     
     display: flex;
   box-sizing: border-box;
@@ -51,7 +51,7 @@
   align-items: left;
   justify-content: center;
   text-align: left;
-}
+} */
 .col-12{
     text-align: center;
     color: blueviolet;
@@ -60,8 +60,10 @@
 .tooltip{
    
 }
-        
+body.dark-mode {
+    background-color: #333333;
+    color: #d4d4be;
+}
 
-        
-        
+    
         

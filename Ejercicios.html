@@ -14,8 +14,14 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
+            <div class="col-11">
                 <h1>Ejercicios guia JavaScript</h1>
+
+            </div>
+            <div class="col-1">
+                <!-- Dark Mode Button -->
+                <button id="darkModeButton" class="btn btn-secondary" onclick="toggleDarkMode()">Toggle Dark
+                    Mode</button>
             </div>
         </div>
         <div class="row">
@@ -23,18 +29,22 @@
             <div class="col menu">
                 <div class="btn-group-vertical text-nowrap">
                     <script>buttonGenerator();</script>
-            </div>
 
+                </div>
+            </div>
+            <div class="col ejercicio-window" style="display: none;">
+                <div id="centered-div">
+                    <p>no se ve esto</p>
+                </div>
+            </div>
             <!-- Main Content Area -->
-            <div class="col col floating-text">
-                <div class="d-flex flex-column"></div>
+            <div class="col floating-text">
                 <div id="dynamic-content">
                     <!-- Content will be dynamically loaded here -->
-                    
+
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
     <!-- Bootstrap JS and jQuery -->

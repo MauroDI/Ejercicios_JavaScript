@@ -1,3 +1,5 @@
+// Add this variable at the top to keep track of whether the ejercicio-window is visible
+let ejercicioWindowVisible = false;
 // Function to initialize hover effect
 function hoverEffect() {
     // Wait for the document to be ready
@@ -33,7 +35,7 @@ function hoverEffect() {
             <img src="EjerciciosMedia/Ejercicio24.jpg" alt="Ejercicio 24" style="max-width: 100%;">`,
             button24: `Escribir un programa de JavaScript que a través de un formulario calcule el radio de un círculo y lo muestre en el HTML.`,
             button25: `Escriba una función de JavaScript para obtener los valores de Nombre y Apellido del siguiente formulario:
-            "<!DOCTYPE html>
+            <!DOCTYPE html>
 <html><head>
 <meta charset=utf-8 />
 <title>Obtener nombre y apellido de form </title>
@@ -44,7 +46,7 @@ Apellido: <input type="text" name="apellido" value="Beckham"><br>
 <input type="submit" value="Submit">
 </form>
 </body>
-</html>"`,
+</html>`,
         };
         
 
@@ -97,11 +99,12 @@ function buttonGenerator() {
     for (let i = 1; i <= 25; i++) {
         const button = document.createElement('button');
         button.type = 'button';
-        button.className = 'btn btn-primary';
+        button.className = 'btn btn-warning with-border';
         button.id = `button${i}`;
         button.textContent = `Ejercicio ${i}`;
         button.onclick = () => {
             loadScript(`Ejercicios Aprendizaje/Ejercicio ${i}.js`);
+            toggleEjercicioWindow(); // Call the function to toggle the ejercicio-window
         };
 
         // Append the button to the button container
@@ -115,4 +118,39 @@ function loadScript(fileName) {
     script.type = 'text/javascript';
     document.getElementById('dynamic-content').innerHTML = '';
     document.getElementById('dynamic-content').appendChild(script);
+}
+// Function to toggle dark mode
+function toggleDarkMode() {
+    // Get a reference to the <body> element
+    const body = document.body;
+
+    // Toggle a CSS class to apply or remove dark mode styles
+    body.classList.toggle("dark-mode");
+    // Update button styles based on the current mode
+    updateButtonStyles();
+}
+function updateButtonStyles() {
+    const isDarkMode = document.body.classList.contains('dark-mode'); // Check if dark mode is active
+    const buttonContainer = document.querySelector('.menu .btn-group-vertical');
+
+    for (let i = 1; i <= 25; i++) {
+        const button = document.getElementById(`button${i}`);
+
+        // Set button class based on dark mode
+        button.className = isDarkMode ? 'btn btn-outline-warning' : 'btn btn-warning with-border';
+    }
+}
+// Function to toggle the visibility and centering of the ejercicio-window
+function toggleEjercicioWindow() {
+    const ejercicioWindow = document.querySelector('.ejercicio-window');
+
+    if (!ejercicioWindowVisible) {
+        ejercicioWindow.style.display = 'flex';
+        ejercicioWindow.style.alignItems = 'center';
+        ejercicioWindow.style.justifyContent = 'center';
+        ejercicioWindowVisible = true;
+    } else {
+        ejercicioWindow.style.display = 'none';
+        ejercicioWindowVisible = false;
+    }
 }
