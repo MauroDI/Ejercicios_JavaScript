@@ -57,12 +57,19 @@
     color: blueviolet;
 }
 
-.tooltip{
-   
+
+#centered-div{
+    padding: 20px;
+    border: 5px solid #ffc107;
 }
 body.dark-mode {
     background-color: #333333;
     color: #d4d4be;
+    #centered-div{
+        color: black;
+        padding: 20px;
+        border: 5px solid #ffc107 ;
+    }
 }
 
     

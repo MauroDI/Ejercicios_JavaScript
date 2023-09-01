@@ -1,5 +1,19 @@
 // Add this variable at the top to keep track of whether the ejercicio-window is visible
 let ejercicioWindowVisible = false;
+
+const elementsWithClass = document.querySelectorAll('.your-class-name');
+document.addEventListener('click', closeEjercicioWindow);
+document.addEventListener('DOMContentLoaded', function() {
+    // Your JavaScript code here
+    // Loop through the selected elements and add the event listener
+    const botonesMenu = document.querySelectorAll('.menu-button');
+botonesMenu.forEach(function (element) {
+    element.addEventListener('click', function () {
+        // Your event handling code here...
+            toggleEjercicioWindow(); // Call the function to toggle the ejercicio-window
+    });
+});
+});
 // Function to initialize hover effect
 function hoverEffect() {
     // Wait for the document to be ready
@@ -99,12 +113,13 @@ function buttonGenerator() {
     for (let i = 1; i <= 25; i++) {
         const button = document.createElement('button');
         button.type = 'button';
-        button.className = 'btn btn-warning with-border';
+        button.className = 'btn btn-warning with-border menu-button';
         button.id = `button${i}`;
         button.textContent = `Ejercicio ${i}`;
         button.onclick = () => {
+            generateEjercicioContent();
             loadScript(`Ejercicios Aprendizaje/Ejercicio ${i}.js`);
-            toggleEjercicioWindow(); // Call the function to toggle the ejercicio-window
+            // toggleEjercicioWindow(); // Call the function to toggle the ejercicio-window
         };
 
         // Append the button to the button container
@@ -137,7 +152,7 @@ function updateButtonStyles() {
         const button = document.getElementById(`button${i}`);
 
         // Set button class based on dark mode
-        button.className = isDarkMode ? 'btn btn-outline-warning' : 'btn btn-warning with-border';
+        button.className = isDarkMode ? 'btn btn-outline-warning menu-button' : 'btn btn-warning with-border menu-button';
     }
 }
 // Function to toggle the visibility and centering of the ejercicio-window
@@ -149,8 +164,22 @@ function toggleEjercicioWindow() {
         ejercicioWindow.style.alignItems = 'center';
         ejercicioWindow.style.justifyContent = 'center';
         ejercicioWindowVisible = true;
-    } else {
+    }
+}
+// Function to close the ejercicio window when clicking outside of it
+function closeEjercicioWindow(event) {
+    const ejercicioWindow = document.querySelector('.ejercicio-window');
+    const dinamicContent = ejercicioWindow.querySelector('.centered-div');
+    
+    // Check if the click target is not a button or the ejercicio window itself
+    if (!event.target.classList.contains('menu-button') 
+    && !dinamicContent.contains(event.target)) {
         ejercicioWindow.style.display = 'none';
         ejercicioWindowVisible = false;
     }
+}
+function generateEjercicioContent() {
+    const ejercicioWindow = document.querySelector('.ejercicio-window');
+    const centeredDiv = ejercicioWindow.querySelector('#centered-div');
+    centeredDiv.style.backgroundColor = "rgba(212, 212, 190, 1)";
 }
